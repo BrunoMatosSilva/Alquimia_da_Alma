@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid()) @db.Uuid
+  name     String
+  email    String @unique
+  password String
+
+  @@map("users")
+}
+
+model Psychologist {
+  id          String        @id @default(uuid()) @db.Uuid
+  name        String        @unique
+  Appointment Appointment[]
+
+  @@map("psychologists")
+}
+
+model Patient {
+  id           String        @id @default(uuid()) @db.Uuid
+  name         String        @unique
+  dateOfBirth  DateTime
+  phone        String
+  zipCode      String
+  address      String
+  number       Int
+  complement   String?
+  neighborhood String
+  city         String
+  File         File[]
+  Appointment  Appointment[]
+
+  @@map("patients")
+}
+
+model File {
+  id               String @id @default(uuid()) @db.Uuid
+  patientId        String @map("patient_id") @db.Uuid
+  originalFileName String
+
+  patient Patient @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@map("files")
+}
+
+model Appointment {
+  id             String   @id @default(uuid()) @db.Uuid
+  patientId      String   @map("patient_id") @db.Uuid
+  psychologistId String   @map("psychologist_id") @db.Uuid
+  date           DateTime
+  time           String
+
+  patient      Patient      @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  psychologist Psychologist @relation(fields: [psychologistId], references: [id], onDelete: Cascade)
+
+  @@map("appointments")
+}
