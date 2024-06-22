@@ -31,7 +31,7 @@ model Patient {
   phone        String
   zipCode      String
   address      String
-  number       Int
+  number       String
   complement   String?
   neighborhood String
   city         String

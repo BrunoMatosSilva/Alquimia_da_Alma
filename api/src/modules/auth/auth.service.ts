@@ -1,4 +1,4 @@
-import { Injectable, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Injectable, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { SigninDto } from './dto/signin';
 import { ResetDTO } from './dto/reset';
 import { ForgetDTO } from './dto/forget';
@@ -7,6 +7,7 @@ import { compare, hash } from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { MailService } from '../mail/mail.service';
 import { env } from 'src/shared/config/env';
+import { CreateUserDto } from './dto/create';
 
 @Injectable()
 export class AuthService {
@@ -15,6 +16,7 @@ export class AuthService {
     private mailService: MailService,
     private readonly jwtService: JwtService,
   ) {}
+
 
   async signin(signinDto: SigninDto) {
     const { email, password } = signinDto;
@@ -36,6 +38,40 @@ export class AuthService {
     const accessToken = await this.generateAccessToken(user.id)
 
     return { accessToken }
+  }
+
+  async create(createDTO:CreateUserDto){
+    const {name, email, password} = createDTO;
+
+    const emailTaken = await this.usersRepo.findUnique({
+      where: {email}
+    })
+
+    if(emailTaken) {
+      throw new ConflictException("This email is already in use.")
+    }
+
+    const hashedPassword = await hash(password, 12)
+
+    const user = await this.usersRepo.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword
+      }
+    })
+
+    const accessToken = await this.generateAccessToken(user.id)
+
+    return {accessToken}
+  }
+
+  async remove(id:string) {
+    await this.usersRepo.delete({
+      where: { id, },
+    });
+
+    return null;
   }
 
   async forgetPassword(forgetDTO: ForgetDTO) {

@@ -25,6 +25,9 @@ let PatientsRepository = class PatientsRepository {
     findUnique(findUnique) {
         return this.prismaService.patient.findUnique(findUnique);
     }
+    count() {
+        return this.prismaService.patient.count();
+    }
     update(updateDto) {
         return this.prismaService.patient.update(updateDto);
     }

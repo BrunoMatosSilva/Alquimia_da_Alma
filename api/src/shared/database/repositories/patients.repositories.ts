@@ -18,6 +18,10 @@ export class PatientsRepository {
     return this.prismaService.patient.findUnique(findUnique)
   }
 
+  count() {
+    return this.prismaService.patient.count();
+  }
+
   update(updateDto: Prisma.PatientUpdateArgs) {
     return this.prismaService.patient.update(updateDto);
   }

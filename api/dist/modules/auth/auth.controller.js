@@ -21,6 +21,7 @@ const IsResetPassword_1 = require("../../shared/decorators/IsResetPassword");
 const ActiveUserId_1 = require("../../shared/decorators/ActiveUserId");
 const reset_1 = require("./dto/reset");
 const forget_1 = require("./dto/forget");
+const create_1 = require("./dto/create");
 let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
@@ -28,6 +29,12 @@ let AuthController = class AuthController {
     signin(signinDTO) {
         const { email, password } = signinDTO;
         return this.authService.signin({ email, password });
+    }
+    create(createDTO) {
+        return this.authService.create(createDTO);
+    }
+    remove(id) {
+        return this.authService.remove(id);
     }
     forgetPassword(forgetDTO) {
         return this.authService.forgetPassword(forgetDTO);
@@ -47,6 +54,22 @@ __decorate([
 ], AuthController.prototype, "signin", null);
 __decorate([
     (0, IsPublic_1.IsPublic)(),
+    (0, common_1.Post)('create'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_1.CreateUserDto]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "create", null);
+__decorate([
+    (0, IsPublic_1.IsPublic)(),
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "remove", null);
+__decorate([
+    (0, IsPublic_1.IsPublic)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     (0, common_1.Post)('forget'),
     __param(0, (0, common_1.Body)()),
@@ -57,7 +80,7 @@ __decorate([
 __decorate([
     (0, IsResetPassword_1.IsResetPassword)(),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
-    (0, common_1.Put)('reset-password'),
+    (0, common_1.Put)('reset'),
     __param(0, (0, ActiveUserId_1.ActiveUserId)()),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),

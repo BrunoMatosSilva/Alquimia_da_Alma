@@ -3,64 +3,65 @@ import { Prisma } from "@prisma/client";
 export declare class PatientsRepository {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createDto: Prisma.PatientCreateArgs): Prisma.Prisma__PatientClient<{
+    create(createDto: Prisma.PatientCreateArgs): Prisma.Prisma__PatientClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         dateOfBirth: Date;
         phone: string;
         zipCode: string;
         address: string;
-        number: number;
+        number: string;
         complement: string;
         neighborhood: string;
         city: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
-    findMany(findManyDto: Prisma.PatientFindManyArgs): Prisma.PrismaPromise<{
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    findMany(findManyDto: Prisma.PatientFindManyArgs): Prisma.PrismaPromise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         dateOfBirth: Date;
         phone: string;
         zipCode: string;
         address: string;
-        number: number;
+        number: string;
         complement: string;
         neighborhood: string;
         city: string;
-    }[]>;
-    findUnique(findUnique: Prisma.PatientFindUniqueArgs): Prisma.Prisma__PatientClient<{
+    }, unknown> & {})[]>;
+    findUnique(findUnique: Prisma.PatientFindUniqueArgs): Prisma.Prisma__PatientClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         dateOfBirth: Date;
         phone: string;
         zipCode: string;
         address: string;
-        number: number;
+        number: string;
         complement: string;
         neighborhood: string;
         city: string;
-    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    update(updateDto: Prisma.PatientUpdateArgs): Prisma.Prisma__PatientClient<{
+    }, unknown> & {}, null, import("@prisma/client/runtime").DefaultArgs>;
+    count(): Prisma.PrismaPromise<number>;
+    update(updateDto: Prisma.PatientUpdateArgs): Prisma.Prisma__PatientClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         dateOfBirth: Date;
         phone: string;
         zipCode: string;
         address: string;
-        number: number;
+        number: string;
         complement: string;
         neighborhood: string;
         city: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
-    delete(deleteDto: Prisma.PatientDeleteArgs): Prisma.Prisma__PatientClient<{
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    delete(deleteDto: Prisma.PatientDeleteArgs): Prisma.Prisma__PatientClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         dateOfBirth: Date;
         phone: string;
         zipCode: string;
         address: string;
-        number: number;
+        number: string;
         complement: string;
         neighborhood: string;
         city: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
 }

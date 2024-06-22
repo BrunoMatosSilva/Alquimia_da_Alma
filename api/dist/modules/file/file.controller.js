@@ -18,6 +18,7 @@ const file_service_1 = require("./file.service");
 const create_file_dto_1 = require("./dto/create-file.dto");
 const platform_express_1 = require("@nestjs/platform-express");
 const OptionalParseUUIDPipe_1 = require("../../shared/pipes/OptionalParseUUIDPipe");
+const IsPublic_1 = require("../../shared/decorators/IsPublic");
 let FileController = class FileController {
     constructor(fileService) {
         this.fileService = fileService;
@@ -53,6 +54,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], FileController.prototype, "findAll", null);
 __decorate([
+    (0, IsPublic_1.IsPublic)(),
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('id', OptionalParseUUIDPipe_1.OptionalParseUUIDPipe)),
     __param(1, (0, common_1.Query)('PatientId', OptionalParseUUIDPipe_1.OptionalParseUUIDPipe)),

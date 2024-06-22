@@ -4,7 +4,7 @@ export declare class CreatePatientDto {
     phone: string;
     zipCode: string;
     address: string;
-    number: number;
+    number: string;
     complement: string;
     neighborhood: string;
     city: string;

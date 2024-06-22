@@ -4,33 +4,33 @@ import { AppointmentService } from './appointment.service';
 export declare class AppointmentController {
     private readonly appointmentService;
     constructor(appointmentService: AppointmentService);
-    create(createAppoitmentDto: CreateAppointmentDto): Promise<{
+    create(createAppoitmentDto: CreateAppointmentDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }>;
-    findAll(day: number, month: number, year: number, psychologistId?: string): Promise<{
+    }, unknown> & {}>;
+    findAll(day: number, month: number, year: number, psychologistId?: string): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }[]>;
-    findOne(AppointmentId: string): Promise<{
+    }, unknown> & {})[]>;
+    findOne(AppointmentId: string): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }>;
-    update(AppointmentId: string, updateAppointmentDto: UpdateAppointmentDto): Promise<{
+    }, unknown> & {}>;
+    update(AppointmentId: string, updateAppointmentDto: UpdateAppointmentDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }>;
+    }, unknown> & {}>;
     remove(AppointmentId: string): Promise<any>;
 }

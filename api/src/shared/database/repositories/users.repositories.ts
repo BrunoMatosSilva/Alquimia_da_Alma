@@ -7,7 +7,7 @@ export class UsersRepository {
   constructor(private readonly prismaService: PrismaService){}
 
   create(createDto: Prisma.UserCreateArgs) {
-    return this.prismaService.user.create(createDto)
+    return this.prismaService.user.create(createDto);
   }
 
   findUnique(findUnique: Prisma.UserFindUniqueArgs) {
@@ -16,5 +16,9 @@ export class UsersRepository {
 
   update(updateDto: Prisma.UserUpdateArgs) {
     return this.prismaService.user.update(updateDto)
+  }
+
+  delete(deleteDto: Prisma.UserDeleteArgs) {
+    return this.prismaService.user.delete(deleteDto)
   }
 }

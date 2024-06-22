@@ -25,6 +25,9 @@ let UsersRepository = class UsersRepository {
     update(updateDto) {
         return this.prismaService.user.update(updateDto);
     }
+    delete(deleteDto) {
+        return this.prismaService.user.delete(deleteDto);
+    }
 };
 exports.UsersRepository = UsersRepository;
 exports.UsersRepository = UsersRepository = __decorate([

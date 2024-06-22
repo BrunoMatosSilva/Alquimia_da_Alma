@@ -24,8 +24,11 @@ let PatientController = class PatientController {
     create(createPatientDto) {
         return this.patientService.create(createPatientDto);
     }
-    findAll() {
-        return this.patientService.findAll();
+    findAll(pageIndex, pageSize) {
+        return this.patientService.findAll(pageIndex, pageSize);
+    }
+    searchByName(name) {
+        return this.patientService.searchByName(name);
     }
     findUnique(PatientId) {
         return this.patientService.findUnique(PatientId);
@@ -47,10 +50,19 @@ __decorate([
 ], PatientController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('pageIndex')),
+    __param(1, (0, common_1.Query)('pageSize')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], PatientController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('search'),
+    __param(0, (0, common_1.Query)('name')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], PatientController.prototype, "searchByName", null);
 __decorate([
     (0, common_1.Get)(':PatientId'),
     __param(0, (0, common_1.Param)('PatientId', common_1.ParseUUIDPipe)),

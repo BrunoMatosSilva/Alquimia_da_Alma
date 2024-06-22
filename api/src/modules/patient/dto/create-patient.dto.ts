@@ -21,9 +21,9 @@ export class CreatePatientDto {
   @IsNotEmpty()
   address: string
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  number: number
+  number: string
 
   @IsString()
   complement: string

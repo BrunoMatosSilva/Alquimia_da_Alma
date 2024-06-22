@@ -6,7 +6,7 @@ export declare class UpdatePatientDto extends UpdatePatientDto_base {
     phone: string;
     zipCode: string;
     address: string;
-    number: number;
+    number: string;
     complement: string;
     neighborhood: string;
     city: string;

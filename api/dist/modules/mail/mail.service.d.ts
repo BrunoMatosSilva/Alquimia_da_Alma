@@ -8,7 +8,7 @@ interface SendParams {
 export declare class MailService {
     private mailerService;
     constructor(mailerService: MailerService);
-    send({ to, msg, subject, isRecoverPass }: SendParams): Promise<SentMessageInfo>;
+    send({ to, msg, subject, isRecoverPass }: SendParams): Promise<any>;
     private generateRecoverPasswordTemplateHtml;
 }
 export {};

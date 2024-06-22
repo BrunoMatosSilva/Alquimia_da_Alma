@@ -3,46 +3,46 @@ import { Prisma } from "@prisma/client";
 export declare class AppointmentsRepository {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createDto: Prisma.AppointmentCreateArgs): Prisma.Prisma__AppointmentClient<{
+    create(createDto: Prisma.AppointmentCreateArgs): Prisma.Prisma__AppointmentClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
-    findMany(findManyDto: Prisma.AppointmentFindManyArgs): Prisma.PrismaPromise<{
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    findMany(findManyDto: Prisma.AppointmentFindManyArgs): Prisma.PrismaPromise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }[]>;
-    findUnique(findUnique: Prisma.AppointmentFindUniqueArgs): Prisma.Prisma__AppointmentClient<{
+    }, unknown> & {})[]>;
+    findUnique(findUnique: Prisma.AppointmentFindUniqueArgs): Prisma.Prisma__AppointmentClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    findOne(findOneDto: Prisma.AppointmentFindFirstArgs): Prisma.Prisma__AppointmentClient<{
+    }, unknown> & {}, null, import("@prisma/client/runtime").DefaultArgs>;
+    findOne(findOneDto: Prisma.AppointmentFindFirstArgs): Prisma.Prisma__AppointmentClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    update(updateDto: Prisma.AppointmentUpdateArgs): Prisma.Prisma__AppointmentClient<{
+    }, unknown> & {}, null, import("@prisma/client/runtime").DefaultArgs>;
+    update(updateDto: Prisma.AppointmentUpdateArgs): Prisma.Prisma__AppointmentClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
-    delete(deleteDto: Prisma.AppointmentDeleteArgs): Prisma.Prisma__AppointmentClient<{
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    delete(deleteDto: Prisma.AppointmentDeleteArgs): Prisma.Prisma__AppointmentClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         patientId: string;
         psychologistId: string;
         date: Date;
         time: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
 }

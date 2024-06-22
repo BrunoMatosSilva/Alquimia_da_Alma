@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Param, Delete, ParseUUIDPipe, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, ParseUUIDPipe, Put, Query, Optional } from '@nestjs/common';
 import { PatientService } from './patient.service';
 import { CreatePatientDto } from './dto/create-patient.dto';
 import { UpdatePatientDto } from './dto/update-patient.dto';
+import { OptionalParseEnumPipe } from 'src/shared/pipes/OptionalParseEnumPipe';
 
 @Controller('patient')
 export class PatientController {
@@ -13,8 +14,18 @@ export class PatientController {
   }
 
   @Get()
-  findAll() {
-    return this.patientService.findAll();
+  findAll(
+    @Query('pageIndex') pageIndex: string,
+    @Query('pageSize') pageSize: string,
+  ) {
+    return this.patientService.findAll(pageIndex, pageSize);
+  }
+
+  @Get('search')
+  searchByName(
+    @Query('name') name: string,
+  ) {
+    return this.patientService.searchByName(name);
   }
 
   @Get(':PatientId')

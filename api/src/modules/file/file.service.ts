@@ -1,5 +1,4 @@
 import { BadRequestException, Injectable, NotFoundException, ServiceUnavailableException, Res } from '@nestjs/common';
-import { createClient } from '@supabase/supabase-js';
 import { CreateFileDto } from './dto/create-file.dto';
 import { FilesRepository } from 'src/shared/database/repositories/files.repositories';
 import { PatientsRepository } from 'src/shared/database/repositories/patients.repositories';

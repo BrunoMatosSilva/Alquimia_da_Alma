@@ -4,6 +4,7 @@ import { CreateFileDto } from './dto/create-file.dto';
 import { Response } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { OptionalParseUUIDPipe } from 'src/shared/pipes/OptionalParseUUIDPipe';
+import { IsPublic } from 'src/shared/decorators/IsPublic';
 
 @Controller('file')
 export class FileController {
@@ -20,6 +21,7 @@ export class FileController {
     return this.fileService.findAll(PatientId);
   }
 
+  @IsPublic()
   @Get()
   findOne(
     @Query('id', OptionalParseUUIDPipe) id: string,

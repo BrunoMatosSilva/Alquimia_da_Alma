@@ -4,21 +4,21 @@ import { UpdatePsychologistDto } from './dto/update-psychologist.dto';
 export declare class PsychologistController {
     private readonly psychologistService;
     constructor(psychologistService: PsychologistService);
-    create(createPsychologistDto: CreatePsychologistDto): Promise<{
+    create(createPsychologistDto: CreatePsychologistDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
-    findAll(): Promise<{
+    }, unknown> & {}>;
+    findAll(): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }[]>;
-    findUnique(PsychologistId: string): Promise<{
+    }, unknown> & {})[]>;
+    findUnique(PsychologistId: string): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
-    update(PsychologistId: string, updatePsychologistDto: UpdatePsychologistDto): Promise<{
+    }, unknown> & {}>;
+    update(PsychologistId: string, updatePsychologistDto: UpdatePsychologistDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
+    }, unknown> & {}>;
     remove(PsychologistId: string): Promise<any>;
 }

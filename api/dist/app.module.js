@@ -15,6 +15,8 @@ const psychologist_module_1 = require("./modules/psychologist/psychologist.modul
 const patient_module_1 = require("./modules/patient/patient.module");
 const appointment_module_1 = require("./modules/appoitment/appointment.module");
 const file_module_1 = require("./modules/file/file.module");
+const core_1 = require("@nestjs/core");
+const auth_guard_1 = require("./modules/auth/auth.guard");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -22,7 +24,12 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [users_module_1.UsersModule, auth_module_1.AuthModule, database_module_1.DatabaseModule, psychologist_module_1.PsychologistModule, patient_module_1.PatientModule, appointment_module_1.AppointmentModule, file_module_1.FileModule],
         controllers: [],
-        providers: [],
+        providers: [
+            {
+                provide: core_1.APP_GUARD,
+                useClass: auth_guard_1.AuthGuard
+            },
+        ],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

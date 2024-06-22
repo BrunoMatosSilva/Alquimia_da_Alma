@@ -3,22 +3,28 @@ import { PrismaService } from "../prisma.service";
 export declare class UsersRepository {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    create(createDto: Prisma.UserCreateArgs): Prisma.Prisma__UserClient<{
+    create(createDto: Prisma.UserCreateArgs): Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         email: string;
         password: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
-    findUnique(findUnique: Prisma.UserFindUniqueArgs): Prisma.Prisma__UserClient<{
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    findUnique(findUnique: Prisma.UserFindUniqueArgs): Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         email: string;
         password: string;
-    }, null, import("@prisma/client/runtime/library").DefaultArgs>;
-    update(updateDto: Prisma.UserUpdateArgs): Prisma.Prisma__UserClient<{
+    }, unknown> & {}, null, import("@prisma/client/runtime").DefaultArgs>;
+    update(updateDto: Prisma.UserUpdateArgs): Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
         email: string;
         password: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
+    delete(deleteDto: Prisma.UserDeleteArgs): Prisma.Prisma__UserClient<import("@prisma/client/runtime").GetResult<{
+        id: string;
+        name: string;
+        email: string;
+        password: string;
+    }, unknown> & {}, never, import("@prisma/client/runtime").DefaultArgs>;
 }

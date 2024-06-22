@@ -37,6 +37,31 @@ let AuthService = class AuthService {
         const accessToken = await this.generateAccessToken(user.id);
         return { accessToken };
     }
+    async create(createDTO) {
+        const { name, email, password } = createDTO;
+        const emailTaken = await this.usersRepo.findUnique({
+            where: { email }
+        });
+        if (emailTaken) {
+            throw new common_1.ConflictException("This email is already in use.");
+        }
+        const hashedPassword = await (0, bcryptjs_1.hash)(password, 12);
+        const user = await this.usersRepo.create({
+            data: {
+                name,
+                email,
+                password: hashedPassword
+            }
+        });
+        const accessToken = await this.generateAccessToken(user.id);
+        return { accessToken };
+    }
+    async remove(id) {
+        await this.usersRepo.delete({
+            where: { id, },
+        });
+        return null;
+    }
     async forgetPassword(forgetDTO) {
         const { email } = forgetDTO;
         const user = await this.usersRepo.findUnique({

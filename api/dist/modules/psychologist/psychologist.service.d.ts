@@ -4,21 +4,21 @@ import { PsychologistsRepository } from 'src/shared/database/repositories/psycho
 export declare class PsychologistService {
     private readonly psychologistRepo;
     constructor(psychologistRepo: PsychologistsRepository);
-    create(createPsychologistDto: CreatePsychologistDto): Promise<{
+    create(createPsychologistDto: CreatePsychologistDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
-    findAll(): Promise<{
+    }, unknown> & {}>;
+    findAll(): Promise<(import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }[]>;
-    findUnique(psychologistId: string): Promise<{
+    }, unknown> & {})[]>;
+    findUnique(psychologistId: string): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
-    update(psychologistId: string, updatePsychologistDto: UpdatePsychologistDto): Promise<{
+    }, unknown> & {}>;
+    update(psychologistId: string, updatePsychologistDto: UpdatePsychologistDto): Promise<import("@prisma/client/runtime").GetResult<{
         id: string;
         name: string;
-    }>;
+    }, unknown> & {}>;
     remove(psychologistId: string): Promise<any>;
 }

@@ -40,9 +40,9 @@ __decorate([
     __metadata("design:type", String)
 ], CreatePatientDto.prototype, "address", void 0);
 __decorate([
-    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreatePatientDto.prototype, "number", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),

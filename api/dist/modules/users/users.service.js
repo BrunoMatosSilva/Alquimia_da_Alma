@@ -11,29 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
-const bcryptjs_1 = require("bcryptjs");
 const users_repositories_1 = require("../../shared/database/repositories/users.repositories");
 let UsersService = class UsersService {
     constructor(usersRepo) {
         this.usersRepo = usersRepo;
     }
-    async create(createUserDto) {
-        const { name, email, password } = createUserDto;
-        const emailTaken = await this.usersRepo.findUnique({
-            where: { email }
+    async getUserbyId(userId) {
+        const user = await this.usersRepo.findUnique({
+            where: { id: userId }
         });
-        if (emailTaken) {
-            throw new common_1.ConflictException('This email is already in use.');
-        }
-        const hashPassword = await (0, bcryptjs_1.hash)(password, 12);
-        const user = await this.usersRepo.create({
-            data: {
-                name,
-                email,
-                password: hashPassword
-            }
-        });
-        return user;
+        return {
+            name: user.name,
+            email: user.email
+        };
     }
 };
 exports.UsersService = UsersService;
