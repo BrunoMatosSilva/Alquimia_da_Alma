@@ -74,7 +74,7 @@ let AuthService = class AuthService {
         try {
             await this.mailService.send({
                 to: email,
-                subject: 'Recuperação de senha - AFetividade',
+                subject: 'Recuperação de senha - Alquimia da Alma',
                 msg: resetToken,
                 isRecoverPass: true
             });
