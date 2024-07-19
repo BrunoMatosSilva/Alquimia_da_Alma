@@ -42,7 +42,7 @@ export class AuthController {
 
   @IsResetPassword()
   @HttpCode(HttpStatus.NO_CONTENT)
-  @Put('reset')
+  @Put('reset-password')
   resetPassword(@ActiveUserId() userId:string, @Body() resetDTO: ResetDTO) {
     return this.authService.resetPassword(userId, resetDTO);
   }
