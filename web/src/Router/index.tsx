@@ -1,5 +1,5 @@
 import { AuthLayout } from "@/view/layouts";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { AuthGuard } from "./authGuard";
 import { Nav } from "./nav";
 import { lazy, Suspense } from "react";
@@ -18,7 +18,7 @@ export function Router() {
     <Suspense fallback={
       <Spinner />
     }>
-    <BrowserRouter>
+    <HashRouter>
     <Routes>
       <Route element={<AuthGuard isPrivate={false} />}>
         <Route path={Nav.login} element={<Login />} />
@@ -35,7 +35,7 @@ export function Router() {
         </Route>
       </Route>
     </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </Suspense>
   )
 }
