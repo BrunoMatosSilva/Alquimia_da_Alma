@@ -5,7 +5,7 @@ export interface ForgetParams {
 }
 
 export async function forget(params:ForgetParams) {
-  const {data} = await httpClient.post('/auth/forget', params)
+  const {data} = await httpClient.post('/auth/forget-password', params)
 
   return data
 }

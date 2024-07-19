@@ -35,7 +35,7 @@ export class AuthController {
 
   @IsPublic()
   @HttpCode(HttpStatus.NO_CONTENT)
-  @Post('forget')
+  @Post('forget-password')
   forgetPassword(@Body() forgetDTO: ForgetDTO) {
     return this.authService.forgetPassword(forgetDTO);
   }

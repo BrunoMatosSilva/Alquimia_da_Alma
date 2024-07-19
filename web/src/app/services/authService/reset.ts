@@ -6,7 +6,7 @@ export interface ResetParams {
 }
 
 export async function reset(params: ResetParams) {
-  const { data } = await httpClient.put('/auth/reset', params, {
+  const { data } = await httpClient.put('/auth/reset-password', params, {
     headers: {
       Authorization: 'Bearer ' + params.token
     }
