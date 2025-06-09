@@ -28,7 +28,7 @@ export class FileService {
     }
 
     const { data, error: uploadError } = await supabase.storage
-      .from(`Patients/${PatientId}`)
+      .from(`patients/${PatientId}`)
       .upload(createFileDto.originalname, createFileDto.buffer, {
         upsert: true,
       }
@@ -67,7 +67,7 @@ export class FileService {
  async findOne(id: string, PatientId: string, originalFileName: string, @Res() res: Response) {
 
     const { data, error: uploadError } = await supabase.storage
-      .from(`Patients`)
+      .from(`patients`)
       .download(`${PatientId}/${originalFileName}`);
 
     if (uploadError) {
@@ -105,7 +105,7 @@ async remove(id: string, PatientId: string, originalFileName: string) {
     }
 
     const { data, error: uploadError } = await supabase.storage
-      .from(`Patients`)
+      .from(`patients`)
       .remove([`${PatientId}/${originalFileName}`]);
 
     if (uploadError) {
